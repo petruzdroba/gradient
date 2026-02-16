@@ -9,10 +9,21 @@ import java.util.Random;
 @Service
 public class GradientServiceImpl implements GradientService {
 
-    public BufferedImage createRandomGradient(int size) {
+    public BufferedImage generate(int size) {
         Random random = new Random();
 
         // 1% chance for radial, 99% for bilinear
+        if (random.nextInt(100) == 0) {
+            return createRadialGradient(size, random);
+        } else {
+            return createBilinearGradient(size, random);
+        }
+    }
+
+    @Override
+    public BufferedImage generate(String seed, int size) {
+        Random random = new Random(seed.hashCode());
+
         if (random.nextInt(100) == 0) {
             return createRadialGradient(size, random);
         } else {

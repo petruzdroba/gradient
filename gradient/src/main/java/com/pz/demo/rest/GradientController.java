@@ -4,6 +4,7 @@ import com.pz.demo.service.GradientService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
@@ -20,7 +21,19 @@ public class GradientController {
 
     @GetMapping("/generate-gradient")
     public ResponseEntity<byte[]> generateGradient() throws Exception {
-        BufferedImage image = service.createRandomGradient(512);
+        BufferedImage image = service.generate(512);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(image, "png", baos);
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.IMAGE_PNG)
+                .body(baos.toByteArray());
+    }
+
+    @GetMapping("/generate-gradient/{seed}")
+    public ResponseEntity<byte[]> generateGradientWithSeed(@PathVariable String seed) throws Exception {
+        BufferedImage image = service.generate(seed, 512);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(image, "png", baos);

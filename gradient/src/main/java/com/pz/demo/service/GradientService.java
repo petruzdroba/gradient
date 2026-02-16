@@ -3,5 +3,7 @@ package com.pz.demo.service;
 import java.awt.image.BufferedImage;
 
 public interface GradientService {
-     BufferedImage createRandomGradient(int size);
+     BufferedImage generate(int size);
+
+     BufferedImage generate(String seed, int size);
 }
