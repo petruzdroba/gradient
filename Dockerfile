@@ -1,9 +1,9 @@
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
+COPY gradient/mvnw .
+COPY gradient/.mvn .mvn
+COPY gradient/pom.xml .
+COPY gradient/src src
 RUN chmod +x ./mvnw
 RUN ./mvnw clean package -DskipTests
 
