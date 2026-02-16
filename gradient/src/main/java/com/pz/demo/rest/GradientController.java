@@ -1,4 +1,4 @@
-package com.pz.demo.controller;
+package com.pz.demo.rest;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
