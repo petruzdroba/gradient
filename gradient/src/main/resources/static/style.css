@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 body, html {
@@ -62,4 +63,27 @@ button:hover {
 button:active {
     transform: translateX(-50%) scale(0.96);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+button.hidden {
+    display: none !important;
+}
+
+.github-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    z-index: 10;
+    user-select: none;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
+.github-link.hidden {
+    display: none !important;
 }
