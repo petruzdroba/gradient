@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Gradient Generator</title>
+</head>
+<body style="text-align: center; margin-top: 50px;">
+<h1>Random Gradient Generator</h1>
+<button onclick="generateGradient()">Generate New Gradient</button>
+<br><br>
+<img id="gradient" src="/generate-gradient" alt="Gradient">
+
+<script>
+    function generateGradient() {
+        document.getElementById('gradient').src = '/generate-gradient?' + new Date().getTime();
+    }
+</script>
+</body>
+</html>
